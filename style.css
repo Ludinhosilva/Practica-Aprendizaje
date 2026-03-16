@@ -1,75 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #f4f7f6; /* Color de fondo [cite: 19] */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    margin: 0;
+    padding: 20px;
 }
 
 .contenedor {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    width: 350px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.contenedor h1 {
+    color: #1a1a2e;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
     text-align: center;
+    letter-spacing: -0.5px;
+}
+
+.entrada-tareas {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1.5rem;
 }
 
 input {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 60%;
+    flex: 1;
+    padding: 14px 18px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    outline: none;
+    background: #f9fafb;
+}
+
+input:focus {
+    border-color: #667eea;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+input::placeholder {
+    color: #9ca3af;
 }
 
 button#botonAgregar {
-    padding: 10px;
-    background-color: #28a745;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 12px;
+    font-weight: 600;
     cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+button#botonAgregar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+button#botonAgregar:active {
+    transform: translateY(0);
 }
 
 ul {
     list-style: none;
-    padding: 0;
-    margin-top: 20px;
-    text-align: left;
+    max-height: 350px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+ul::-webkit-scrollbar {
+    width: 6px;
+}
+
+ul::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+ul::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 10px;
 }
 
 li {
-    background: #fff;
-    border-bottom: 1px solid #eee;
-    padding: 10px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
-/* Diferenciación visual de tarea completada [cite: 23] */
+li:hover {
+    border-color: #667eea;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+li span {
+    color: #374151;
+    font-size: 0.95rem;
+    flex: 1;
+    word-break: break-word;
+}
+
 .completada {
+    background: #f3f4f6;
+}
+
+.completada span {
     text-decoration: line-through;
-    color: #888;
-    background-color: #f9f9f9;
+    color: #9ca3af;
 }
 
 .btn-borrar {
     background: none;
     border: none;
-    color: #e74c3c;
+    color: #ef4444;
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    margin-left: 10px;
+}
+
+.btn-borrar:hover {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.contador {
+    margin-top: 1.5rem;
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.9rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.contador span {
+    font-weight: 700;
+    color: #667eea;
 }
 
 footer {
     position: fixed;
-    bottom: 10px;
+    bottom: 20px; 
+    left: 0;
     width: 100%;
     text-align: center;
+    color: #9ca3af;
     font-size: 0.8rem;
+
+}
+
+footer strong {
+    color: #291058;
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .entrada-tareas {
+        display: flex;
+        flex-direction: column; 
+        gap: 10px;
+    }
+    
+    input, button#botonAgregar {
+        width: 100%; 
+    }
 }
