@@ -168,26 +168,32 @@ li span {
 }
 
 footer {
+    position: fixed;
+    bottom: 20px; 
+    left: 0;
+    width: 100%;
     text-align: center;
-    margin-top: 1.5rem;
-    font-size: 0.8rem;
     color: #9ca3af;
+    font-size: 0.8rem;
+
 }
 
 footer strong {
-    color: #667eea;
+    color: #291058;
 }
 
 @media (max-width: 480px) {
-    .contenedor {
-        padding: 1.5rem;
+    h1 {
+        font-size: 1.5rem;
     }
     
     .entrada-tareas {
-        flex-direction: column;
+        display: flex;
+        flex-direction: column; 
+        gap: 10px;
     }
     
-    button#botonAgregar {
-        width: 100%;
+    input, button#botonAgregar {
+        width: 100%; 
     }
 }
