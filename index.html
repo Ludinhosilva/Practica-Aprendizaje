@@ -3,25 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis Tareas</title>
+    <title>Bloc de Tareas</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main class="contenedor">
-        <h1>Mis Tareas</h1>       
-        <div class="entrada-tareas">
-            <input type="text" id="nuevaTareaInput" placeholder="Escribe una tarea..." autofocus>
-            <button id="botonAgregar">Agregar</button>
+    <section id="welcome-screen" class="screen active">
+        <div class="welcome-content">
+            <h1>BLOC DE TAREAS</h1>
+            <p>Organiza tus pendientes conmigo</p>
+            <button id="btn-comenzar" class="btn-primary">Comenzamos</button>
         </div>
-        <ul id="listaDeTareas"></ul>
-        <p class="contador">Total: <span id="contadorTareas">0</span> tareas</p>
-    </main>
-    <footer>
-        <p>Desarrollado por <strong>Ludwing Silva</strong></p>
-    </footer>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+    </section>
+
+    <section id="main-screen" class="screen">
+        <header class="app-header">
+            <h1>BLOC DE TAREAS</h1>
+            <button id="btn-volver" class="btn-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+            </button>
+        </header>
+        
+        <main class="main-content">
+            <div class="container add-container">
+                <h2>Agregar Tarea</h2>
+                <div class="input-group">
+                    <input type="text" id="tarea-input" placeholder="Escribe una nueva tarea..." maxlength="200">
+                    <button id="btn-agregar" class="btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 5v14M5 12h14"/>
+                        </svg>
+                        Agregar
+                    </button>
+                </div>
+            </div>
+
+            <div class="container list-container">
+                <h2>Lista de Tareas</h2>
+                <div id="tareas-lista" class="tareas-lista"></div>
+                <div id="empty-state" class="empty-state">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+                        <rect x="9" y="3" width="6" height="4" rx="1"/>
+                        <path d="M9 12l2 2 4-4"/>
+                    </svg>
+                    <p>No hay tareas pendientes</p>
+                    <span>Agrega una tarea para comenzar</span>
+                </div>
+            </div>
+        </main>
+
+        <div id="toast" class="toast"></div>
+    </section>
+
     <script src="script.js"></script>
+    <footer>
+        <p>Desarrollador por Ludwing Silva</p>
+    </footer>
 </body>
 </html>
