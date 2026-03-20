@@ -4,23 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bloc de Tareas</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="icon-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </symbol>
+        <symbol id="icon-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 5v14M5 12h14"/>
+        </symbol>
+        <symbol id="icon-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 6h18"/>
+            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+            <path d="M9 6V4c0-1 1-2 2-2h2c1 0 2 1 2 2v2"/>
+        </symbol>
+    </svg>
     <section id="welcome-screen" class="screen active">
         <div class="welcome-content">
             <h1>BLOC DE TAREAS</h1>
             <p>Organiza tus pendientes conmigo</p>
             <button id="btn-comenzar" class="btn-primary">Comenzamos</button>
-        </div>
-        <div class="floating-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-            <div class="shape shape-4"></div>
         </div>
     </section>
 
@@ -28,26 +32,28 @@
         <header class="app-header">
             <h1>BLOC DE TAREAS</h1>
             <button id="btn-volver" class="btn-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M19 12H5M12 19l-7-7 7-7"/>
-                </svg>
+                <svg width="24" height="24" aria-hidden="true"><use href="#icon-back"/></svg>
             </button>
         </header>
         
         <main class="main-content">
             <div class="container add-container">
                 <h2>Agregar Tarea</h2>
+                <div class="field-group">
+                    <label for="tarea-titulo">Título</label>
+                    <input type="text" id="tarea-titulo" placeholder="Escribe el título..." maxlength="120">
+                </div>
+                <div class="field-group">
+                    <label for="tarea-contenido">Contenido</label>
+                    <textarea id="tarea-contenido" placeholder="Escribe los detalles..." maxlength="300"></textarea>
+                </div>
                 <div class="input-group">
-                    <input type="text" id="tarea-input" placeholder="Escribe una nueva tarea..." maxlength="200">
                     <button id="btn-agregar" class="btn-primary">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 5v14M5 12h14"/>
-                        </svg>
+                        <svg width="20" height="20" aria-hidden="true"><use href="#icon-plus"/></svg>
                         Agregar
                     </button>
                 </div>
             </div>
-
             <div class="container list-container">
                 <h2>Lista de Tareas</h2>
                 <div id="tareas-lista" class="tareas-lista"></div>
@@ -61,14 +67,43 @@
                     <span>Agrega una tarea para comenzar</span>
                 </div>
             </div>
+
+            <div class="container detail-container">
+                <h2>Detalle</h2>
+                <div id="detalle-vacio" class="detalle-vacio">Selecciona una tarea para ver el detalle</div>
+                <div id="detalle-contenido" class="detalle-contenido" aria-live="polite">
+                    <h3 id="detalle-titulo"></h3>
+                    <p id="detalle-texto"></p>
+                    <span id="detalle-fecha" class="detalle-fecha"></span>
+                </div>
+            </div>
         </main>
+
+        <section class="history-grid">
+            <div class="container history-container">
+                <div class="history-header">
+                    <h2>Historial de realizadas</h2>
+                    <button id="btn-limpiar-realizadas" class="btn-ghost">Limpiar</button>
+                </div>
+                <div id="historial-realizadas" class="historial-lista"></div>
+                <div id="historial-realizadas-vacio" class="detalle-vacio">Aún no hay tareas realizadas</div>
+            </div>
+            <div class="container history-container">
+                <div class="history-header">
+                    <h2>Historial de eliminadas</h2>
+                    <button id="btn-limpiar-eliminadas" class="btn-ghost">Limpiar</button>
+                </div>
+                <div id="historial-eliminadas" class="historial-lista"></div>
+                <div id="historial-eliminadas-vacio" class="detalle-vacio">Aún no hay tareas eliminadas</div>
+            </div>
+        </section>
 
         <div id="toast" class="toast"></div>
     </section>
 
     <script src="script.js"></script>
-    <footer>
-        <p>Desarrollador por Ludwing Silva</p>
+    <footer style="margin-top: auto; padding: 1rem; text-align: center; color: var(--text-muted); font-size: 0.8rem;">
+    Desarrollado por Ludwing Silva
     </footer>
 </body>
 </html>
