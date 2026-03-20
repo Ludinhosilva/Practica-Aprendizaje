@@ -1,21 +1,33 @@
-# 📝 Lista de Tareas Personales
+# 📝 Lista de Bloc de Tareas
 
-Proyecto desarrollado como parte del examen práctico de **HTML, CSS y JavaScript**.
-Esta aplicación permite gestionar tareas diarias de forma dinámica, ofreciendo una interfaz responsiva y moderna.
-
-## 🚀 Características
-- **Gestión Dinámica**
-- **Validación de Datos**
-- **Interactividad**
-- **Puntos Extra Implementados**:
-  - Botón de eliminación individual.
-  - Soporte para agregar tareas con la tecla `Enter`.
-  - Contador de tareas automático.
-
-## 🛠️ Tecnologías Utilizadas
-- **HTML5**: Estructura semántica del sitio.
-- **CSS3**: Diseño responsivo con Flexbox y variables modernas.
-- **JavaScript (ES6+)**: Manipulación del DOM y lógica de eventos.
+Gestor simple de tareas con panel de detalle, toasts y persistencia en localStorage. Incluye historiales separados para tareas realizadas y eliminadas.
+## Requisitos
+- Navegador moderno.
+- Opcional: servidor estático para servir la carpeta (ej. `npx serve .` o `python -m http.server 8000`).
+## Instalación y uso
+1. Clonar: `git clone <URL_DEL_REPO>`
+2. Entrar: `cd <carpeta>`
+3. Abrir `index.html` en el navegador  
+   - Opcional: servir: `npx serve .` (puerto 3000/5000 según herramienta) o `python -m http.server 8000`.
+## Funcionalidades
+- Agregar tarea con título y contenido (validaciones de longitud).
+- Marcar como realizada (añade al historial de realizadas).
+- Eliminar (añade al historial de eliminadas).
+- Panel de detalle con título, contenido y fecha; scroll si crece.
+- Toasts de feedback.
+- Persistencia en `localStorage` de tareas y ambos historiales.
+## Estructura de archivos
+- `index.html` – layout, sprites SVG reutilizables.
+- `style.css` – estilos, grillas responsivas, wraps y scrolls.
+- `script.js` – lógica de tareas, detalle, historiales, persistencia.
+## Notas de diseño
+- Tipografía de sistema (sin dependencias externas).
+- Iconos SVG embebidos (sin APIs).
+- Dos historiales con botones de limpieza y scroll.
+## Mejoras futuras
+- Límite de registros en historiales.
+- Restaurar tareas desde historial.
+- Tests automáticos y linting.
 
 ## 👤 Autor
 **Ludwing Jounney Silva Ramos**
